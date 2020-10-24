@@ -1,0 +1,99 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "A simple bar chart with embedded data.",
+  "width": 400,
+  "height": 300,
+  "title": "Volcanic eruptions",
+  "data": {
+    "url": "https://raw.githubusercontent.com/JiaqiLi123/FIT379/main/database.csv"
+  },
+  "params": [
+    {
+      "name": "Region_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Mediterranean and Western Asia",
+          "Africa and Red Sea",
+          "Middle East and Indian Ocean",
+          "New Zealand to Fiji",
+          "Melanesia and Australia",
+          "Indonesia",
+          "Philippines and SE Asia",
+          "Japan, Taiwan, Marianas",
+          "Kuril Islands",
+          "Kamchatka and Mainland Asia",
+          "Alaska",
+          "Canada and Western USA",
+          "Hawaii and Pacific Ocean",
+          "México and Central America",
+          "South America",
+          "West Indies",
+          "Iceland and Arctic Ocean",
+          "Atlantic Ocean",
+          "Antarctica"
+        ],
+        "labels": [
+          "Show All",
+          "Mediterranean and Western Asia",
+          "Africa and Red Sea",
+          "Middle East and Indian Ocean",
+          "New Zealand to Fiji",
+          "Melanesia and Australia",
+          "Indonesia",
+          "Philippines and SE Asia",
+          "Japan, Taiwan, Marianas",
+          "Kuril Islands",
+          "Kamchatka and Mainland Asia",
+          "Alaska",
+          "Canada and Western USA",
+          "Hawaii and Pacific Ocean",
+          "México and Central America",
+          "South America",
+          "West Indies",
+          "Iceland and Arctic Ocean",
+          "Atlantic Ocean",
+          "Antarctica"
+        ],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "Region_selection == null || datum.Region == Region_selection"}
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "Region", "title": "Region"},
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "axis": {"tickCount": 3},
+      "scale": {"type": "log", "domain": [1, 1000]},
+      "title": "Number of volcanic eruptions"
+    },
+    "tooltip": [
+      {"field": "Region", "type": "nominal"},
+      {"field": "Region", "aggregate": "count", "type": "nominal"}
+    ]
+  },
+  "layer": [
+    {"mark": "bar"},
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "up",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Region", "aggregate": "count", "type": "nominal"},
+        "color": {"value": "black"}
+      }
+    }
+  ],
+  "config": {}
+}
