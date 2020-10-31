@@ -5,7 +5,7 @@
   "height": 300,
   "title": "Volcanic eruptions",
   "data": {
-    "url": "https://raw.githubusercontent.com/JiaqiLi123/FIT379/main/database.csv"
+    "url": "https://raw.githubusercontent.com/JiaqiLi123/FIT379/master/Cleaned_database.csv"
   },
   "params": [
     {
