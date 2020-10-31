@@ -1,89 +1,83 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "description": "A simple bar chart with embedded data.",
+  "description": "A simple pie chart with embedded data.",
   "width": 300,
-  "title": "Types of rocks in volcanoes",
+  "height": 300,
+  "title": "the ten countries with the most volcanoes",
   "data": {
     "url": "https://raw.githubusercontent.com/JiaqiLi123/FIT379/master/Cleaned_data.csv"
   },
-  "mark": "bar",
+  "mark": "arc",
   "params": [
     {
-      "name": "Rock_Type_selection",
+      "name": "Country_selection",
       "bind": {
         "input": "select",
         "options": [
           null,
-          "Andesite / Basaltic Andesite",
-          "Basalt / Picro-Basalt",
-          "Dacite",
-          "Rhyolite",
-          "Trachyte / Trachydacite",
-          "Trachyandesite / Basaltic Trachyandesite",
-          "Foidite",
-          "Phonolite",
-          "Phono-tephrite /  Tephri-phonolite"
+          "Chile",
+          "Ecuador",
+          "Ethiopia",
+          "Indonesia",
+          "Japan",
+          "Mexico",
+          "Papua New Guinea",
+          "Philippines",
+          "Russia",
+          "United States",
+          "Other country"
         ],
         "labels": [
           "Show All",
-          "Andesite / Basaltic Andesite",
-          "Basalt / Picro-Basalt",
-          "Dacite",
-          "Rhyolite",
-          "Trachyte / Trachydacite",
-          "Trachyandesite / Basaltic Trachyandesite",
-          "Foidite",
-          "Phonolite",
-          "Phono-tephrite /  Tephri-phonolite"
+          "Chile",
+          "Ecuador",
+          "Ethiopia",
+          "Indonesia",
+          "Japan",
+          "Mexico",
+          "Papua New Guinea",
+          "Philippines",
+          "Russia",
+          "United States",
+          "Other countryies"
         ],
-        "name": "Rock_Type Selection: "
+        "name": "Country Selection: "
       }
     }
   ],
   "transform": [
     {
-      "filter": "Rock_Type_selection==null||datum.Dominant_Rock_Type==Rock_Type_selection"
+      "filter": "Country_selection==null||datum.clean_Country==Country_selection"
     }
   ],
+  "selection": {
+    "country_highlight": {
+      "type": "multi",
+      "fields": ["clean_Country"],
+      "bind": "legend"
+    }
+  },
   "encoding": {
-    "x": {
-      "field": "Dominant_Rock_Type",
-      "type": "nominal",
-      "axis": {"labelAngle": 30},
-      "sort": "-y",
-      "title": "Rock type"
-    },
-    "y": {
-      "field": "Dominant_Rock_Type",
+    "theta": {
+      "field": "clean_Country",
       "type": "quantitative",
-      "aggregate": "count",
-      "title": "Number of volcanoes"
+      "aggregate": "count"
+    },
+    "color": {"field": "clean_Country", "type": "nominal"},
+    "opacity": {
+      "condition": {"selection": "country_highlight", "value": 1},
+      "value": 0.3
     },
     "tooltip": [
-      {"field": "Dominant_Rock_Type", "type": "nominal"},
-      {"field": "Dominant_Rock_Type", "type": "nominal", "aggregate": "count"}
+      {"field": "clean_Country", "title": "Country", "type": "nominal"},
+      {
+        "field": "clean_Country",
+        "title": "Number of volcanic",
+        "type": "quantitative",
+        "aggregate": "count"
+      }
     ]
   },
-  "layer": [
-    {"mark": "bar"},
-    {
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "up",
-        "dx": -10,
-        "fontSize": 11.5,
-        "fontStyle": "italic"
-      },
-      "encoding": {
-        "text": {
-          "field": "Dominant_Rock_Type",
-          "aggregate": "count",
-          "type": "nominal"
-        },
-        "color": {"value": "black"}
-      }
-    }
-  ],
+  "view": {"stroke": null},
   "config": {}
 }
