@@ -1,62 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vega-Embed for Vega-Lite</title>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <!-- Import vega-embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  
+</head>
+<body>
 
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
-    <script src="build/vega-embed.js"></script>
-    <style>
-      body {
-        margin: 0;
-      }
-      #vis {
-        width: 100vw;
-        height: 100vh;
-      }
-    </style>
-  </head>
+<h1>Global Volcano Information</h1>
 
-  <body>
-    <div id="vis"></div>
-    <script>
-      async function run() {
-        const spec = {
-          $schema: "https://vega.github.io/schema/vega-lite/v4.json",
-          width: "container",
-          height: "container",
-          data: {
-            values: [
-              { a: "A", b: 28 },
-              { a: "B", b: 55 },
-              { a: "C", b: 43 },
-              { a: "D", b: 91 },
-              { a: "E", b: 81 },
-              { a: "F", b: 53 },
-              { a: "G", b: 19 },
-              { a: "H", b: 87 },
-              { a: "I", b: 52 },
-            ],
-          },
-          mark: "bar",
-          encoding: {
-            x: { field: "a", type: "nominal" },
-            y: { field: "b", type: "quantitative" },
-            tooltip: { field: "b", type: "quantitative" },
-          },
-        };
+<h2>This is the first visualisation</h2>
+<div id="choropleth_map"></div>
 
-        const result = await vegaEmbed("#vis", spec, {
-          actions: true,
-        });
+<h2>This is the second visualisation</h2>
+<div id="scatter_plot"></div>
 
-        console.log(result);
-      }
+<script type="text/javascript">
+  
+  var vis1 = "https://raw.githubusercontent.com/JiaqiLi123/FIT379/master/visualization.vl-4.json";
+  
+  vegaEmbed('#choropleth_map', vis1).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  var vis2 = "https://raw.githubusercontent.com/JiaqiLi123/FIT379/master/visualization.vl-5.json";
+  
+  vegaEmbed('#scatter_plot', vis2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
 
-      run();
-    </script>
-  </body>
+</body>
 </html>
-hello
