@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Relationship between Tectonic and Activity_Evidence",
+  "data": {
+    "url": "https://raw.githubusercontent.com/JiaqiLi123/FIT379/master/Clean_database.csv"
+  },
+  "mark": "rect",
+  "params": [
+    {
+      "name": "Tectonic_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Subduction Zone / Continental Crust (>25 km)",
+          "Intraplate / Continental Crust (>25 km)",
+          "Subduction Zone / Oceanic Crust (< 15 km)",
+          "Rift Zone / Continental Crust (>25 km)",
+          "Rift Zone / Oceanic Crust (< 15 km)",
+          "Subduction Zone / Crust Thickness Unknown",
+          "Subduction Zone / Intermediate Crust (15-25 km)",
+          "Rift Zone / Intermediate Crust (15-25 km)",
+          "Intraplate / Oceanic Crust (< 15 km)",
+          "Intraplate / Intermediate Crust (15-25 km)"
+        ],
+        "labels": [
+          "Show All",
+          "Subduction Zone / Continental Crust (>25 km)",
+          "Intraplate / Continental Crust (>25 km)",
+          "Subduction Zone / Oceanic Crust (< 15 km)",
+          "Rift Zone / Continental Crust (>25 km)",
+          "Rift Zone / Oceanic Crust (< 15 km)",
+          "Subduction Zone / Crust Thickness Unknown",
+          "Subduction Zone / Intermediate Crust (15-25 km)",
+          "Rift Zone / Intermediate Crust (15-25 km)",
+          "Intraplate / Oceanic Crust (< 15 km)",
+          "Intraplate / Intermediate Crust (15-25 km)"
+        ],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "Tectonic_selection==null||datum.Tectonic_Setting==Tectonic_selection"
+    }
+  ],
+  "encoding": {
+    "y": {"field": "Tectonic_Setting", "type": "nominal"},
+    "x": {"field": "Activity_Evidence", "type": "ordinal"},
+    "color": {"aggregate": "count", "field": "Activity_Evidence"},
+    "tooltip": [
+      {"field": "Tectonic_Setting", "type": "nominal"},
+      {"field": "Activity_Evidence", "type": "nominal"},
+      {"field": "Activity_Evidence", "type": "nominal", "aggregate": "count"}
+    ]
+  },
+  "config": {"axis": {"grid": true, "tickBand": "extent"}}
+}
