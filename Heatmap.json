@@ -5,6 +5,7 @@
     "url": "https://raw.githubusercontent.com/JiaqiLi123/FIT379/master/Cleaned_data.csv"
   },
   "mark": "rect",
+  "background":"lightblue",
   "params": [
     {
       "name": "Tectonic_selection",
