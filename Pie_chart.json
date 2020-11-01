@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "A simple pie chart with embedded data.",
-  "width": 300,
+  "width": 400,
   "height": 300,
   "title": "the ten countries with the most volcanoes",
   "data": {
