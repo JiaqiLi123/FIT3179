@@ -4,6 +4,7 @@
   "width": 400,
   "height": 300,
   "title": "Volcanic eruptions",
+  "background":"lightblue",
   "data": {
     "url": "https://raw.githubusercontent.com/JiaqiLi123/FIT379/master/Cleaned_data.csv"
   },
