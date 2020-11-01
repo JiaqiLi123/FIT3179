@@ -3,7 +3,7 @@
   "description": "A simple bar chart with embedded data.",
   "width": 400,
   "height": 300,
-  "title": "Volcanic eruptions",
+  "title": "Number of volcanoes in each region",
   "background":"lightblue",
   "data": {
     "url": "https://raw.githubusercontent.com/JiaqiLi123/FIT379/master/Cleaned_data.csv"
@@ -57,7 +57,7 @@
           "Atlantic Ocean",
           "Antarctica"
         ],
-        "name": "Continent Selection: "
+        "name": "Region Selection: "
       }
     }
   ],
@@ -66,7 +66,7 @@
   ],
   "mark": "bar",
   "encoding": {
-    "x": {"field": "Region", "title": "Region"},
+    "x": {"field": "Region", "title": "Region","sort":"-y"},
     "y": {
       "aggregate": "count",
       "type": "quantitative",
@@ -98,3 +98,4 @@
   ],
   "config": {}
 }
+
