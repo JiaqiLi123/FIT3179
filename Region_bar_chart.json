@@ -71,7 +71,6 @@
       "aggregate": "count",
       "type": "quantitative",
       "axis": {"tickCount": 3},
-      "scale": {"type": "log", "domain": [1, 1000]},
       "title": "Number of volcanic eruptions"
     },
     "tooltip": [
