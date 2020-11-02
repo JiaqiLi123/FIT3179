@@ -3,7 +3,7 @@
   "width": 500,
   "height": 300,
   "background":"lightblue",
-  "title": "Earthquakes of magnitude 4 or large between 4 Oct 2020 and 10 Oct 2020",
+  "title": "Global volcano distribution",
   "projection": {"type": "equalEarth"},
   "layer": [
     {
