@@ -61,8 +61,8 @@
       "title": "Number of volcanoes"
     },
     "tooltip": [
-      {"field": "Dominant_Rock_Type", "type": "nominal"},
-      {"field": "Dominant_Rock_Type", "type": "nominal", "aggregate": "count"}
+      {"field": "Dominant_Rock_Type", "type": "nominal","title":"Rock type"},
+      {"field": "Dominant_Rock_Type", "type": "nominal", "aggregate": "count","title":"Number of volcanoes"}
     ]
   },
   "layer": [
