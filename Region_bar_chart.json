@@ -65,7 +65,7 @@
   ],
   "mark": "bar",
   "encoding": {
-    "x": {"field": "Region", "title": "Region","sort":"-y","axis": {"labelAngle": 30},},
+    "x": {"field": "Region", "title": "Region","sort":"-y","axis": {"labelAngle": 30}},
     "y": {
       "aggregate": "count",
       "type": "quantitative",
