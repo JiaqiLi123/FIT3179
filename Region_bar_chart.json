@@ -4,7 +4,6 @@
   "width": 400,
   "height": 300,
   "title": "Number of volcanoes in each region",
-  "background":"lightblue",
   "data": {
     "url": "https://raw.githubusercontent.com/JiaqiLi123/FIT379/master/Cleaned_data.csv"
   },
@@ -74,8 +73,8 @@
       "title": "Number of volcanic eruptions"
     },
     "tooltip": [
-      {"field": "Region", "type": "nominal"},
-      {"field": "Region", "aggregate": "count", "type": "nominal"}
+      {"field": "Region", "type": "nominal","title":"Region"},
+      {"field": "Region", "aggregate": "count", "type": "nominal","title":"Number of volcanoes"}
     ]
   },
   "layer": [
