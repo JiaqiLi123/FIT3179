@@ -5,7 +5,6 @@
     "url": "https://raw.githubusercontent.com/JiaqiLi123/FIT379/master/Cleaned_data.csv"
   },
   "mark": "rect",
-  "background":"lightblue",
   "params": [
     {
       "name": "Tectonic_selection",
@@ -51,9 +50,9 @@
     "x": {"field": "Activity_Evidence", "type": "ordinal"},
     "color": {"aggregate": "count", "field": "Activity_Evidence"},
     "tooltip": [
-      {"field": "Tectonic_Setting", "type": "nominal"},
-      {"field": "Activity_Evidence", "type": "nominal"},
-      {"field": "Activity_Evidence", "type": "nominal", "aggregate": "count"}
+      {"field": "Tectonic_Setting", "type": "nominal","title":"Tectonic setting"},
+      {"field": "Activity_Evidence", "type": "nominal","title":"Activity Evidence"},
+      {"field": "Activity_Evidence", "type": "nominal", "aggregate": "count","title":"Number of volcanoes"}
     ]
   },
   "config": {"axis": {"grid": true, "tickBand": "extent"}}
