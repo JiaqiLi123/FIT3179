@@ -22,8 +22,9 @@
         "longitude": {"field": "Longitude", "type": "quantitative"},
         "latitude": {"field": "Latitude", "type": "quantitative"},
         "tooltip": [
-      {"field": "Region", "type": "nominal","title":"Region"},
-      {"field": "Region", "aggregate": "count", "type": "nominal","title":"Number of volcanoes"}
+      {"field": "Name", "type": "nominal","title":"Volcanoes name"},
+      {"field": "Longitude", "aggregate": "count", "type": "nominal","title":"Longitude"},
+      {"field": "Latitude", "aggregate": "count", "type": "nominal","title":"Latitude"},
     ]
       }
     }
