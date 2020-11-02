@@ -3,7 +3,6 @@
   "description": "A simple pie chart with embedded data.",
   "width": 400,
   "height": 300,
-  "background":"lightblue",
   "title": "the ten countries with the most volcanoes",
   "data": {
     "url": "https://raw.githubusercontent.com/JiaqiLi123/FIT379/master/Cleaned_data.csv"
