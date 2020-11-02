@@ -47,7 +47,7 @@
   ],
   "encoding": {
     "y": {"field": "Tectonic_Setting", "type": "nominal"},
-    "x": {"field": "Activity_Evidence", "type": "ordinal","axis": {"labelAngle": 30},},
+    "x": {"field": "Activity_Evidence", "type": "ordinal","axis": {"labelAngle": 30}},
     "color": {"aggregate": "count", "field": "Activity_Evidence"},
     "tooltip": [
       {"field": "Tectonic_Setting", "type": "nominal","title":"Tectonic setting"},
