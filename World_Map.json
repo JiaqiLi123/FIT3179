@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 400,
+  "width": 500,
   "height": 300,
   "background":"lightblue",
   "title": "Earthquakes of magnitude 4 or large between 4 Oct 2020 and 10 Oct 2020",
@@ -20,7 +20,11 @@
       "mark": {"type": "circle", "tooltip": {"content": "data"},"color":"red"},
       "encoding": {
         "longitude": {"field": "Longitude", "type": "quantitative"},
-        "latitude": {"field": "Latitude", "type": "quantitative"}
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "tooltip": [
+      {"field": "Region", "type": "nominal","title":"Region"},
+      {"field": "Region", "aggregate": "count", "type": "nominal","title":"Number of volcanoes"}
+    ]
       }
     }
   ],
